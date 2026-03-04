@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-PT" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        :root {
+            --pinterest-pink: #F472B6;
+            --pinterest-lilac: #D8B4FE;
+            --pinterest-beige: #FDF8F2;
+            --pinterest-white: #FFFFFF;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #FDF8F8;
+            background-color: var(--pinterest-beige);
             color: #4A4A4A;
-            background-image: radial-gradient(#fbcfe8 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
         }
         .font-serif { font-family: 'Playfair Display', serif; }
         
@@ -26,302 +30,421 @@
             box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.4);
         }
         .glass {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(251, 207, 232, 0.3);
+            border-bottom: 1px solid rgba(244, 114, 182, 0.1);
         }
-        .image-card {
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        .card-elegant {
+            background: white;
+            border-radius: 2rem;
+            border: 1px solid rgba(244, 114, 182, 0.1);
+            transition: all 0.4s ease;
             overflow: hidden;
-            background-color: #fff;
         }
-        .image-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(244, 114, 182, 0.25);
+        .card-elegant:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(244, 114, 182, 0.2);
         }
         .floating {
-            animation: floating 3s ease-in-out infinite;
+            animation: floating 4s ease-in-out infinite;
         }
         @keyframes floating {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
-        .lifestyle-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%);
+        .check-icon {
+            color: #F472B6;
+            flex-shrink: 0;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#fbcfe8 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+        }
+        .image-container {
+            background-color: #fce7f3; /* Fallback color pink-100 */
+            position: relative;
+            overflow: hidden;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-pattern">
 
     <!-- Barra de Promoção -->
-    <div class="bg-pink-400 text-white text-center py-2 text-[10px] font-bold tracking-[0.2em] uppercase">
+    <div class="bg-pink-500 text-white text-center py-2 text-[11px] font-bold tracking-[0.2em] uppercase px-4 sticky top-0 z-[60]">
         OFERTA EXCLUSIVA: APENAS R$ 19,90 POR TEMPO LIMITADO
     </div>
 
     <!-- Navegação -->
-    <nav class="sticky top-0 w-full z-50 glass py-4">
+    <nav class="sticky top-[34px] w-full z-50 glass py-3">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <span class="font-serif italic text-xl text-pink-500 font-bold tracking-tight">Financeira.Premium</span>
-            <!-- Botão Nav: Agora leva para o ID #valor -->
-            <a href="#valor" class="bg-pink-400 text-white px-6 py-2 rounded-full text-xs font-bold hover:bg-pink-500 transition shadow-lg shadow-pink-100 uppercase tracking-wider">Comprar Agora</a>
+            <span class="font-serif italic text-xl text-pink-500 font-bold">Financeira.Premium</span>
+            <a href="#valor" class="bg-pink-400 text-white px-5 py-2 rounded-full text-[10px] font-bold hover:bg-pink-500 transition uppercase tracking-wider">Garantir Oferta</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="pt-20 pb-16 px-6 relative">
-        <div class="absolute top-20 -left-20 w-64 h-64 bg-pink-100 rounded-full blur-[100px] opacity-60"></div>
-        <div class="container mx-auto text-center max-w-4xl relative">
-            <div class="inline-block px-4 py-1 rounded-full bg-white border border-pink-100 text-pink-500 text-[10px] font-bold uppercase tracking-widest mb-8 shadow-sm">
-                A queridinha do Pinterest ✨
-            </div>
-
-            <h1 class="font-serif text-4xl md:text-7xl text-gray-800 leading-[1.1] mb-8">
-                A estética que você ama, com a <span class="text-pink-400 italic">organização</span> que você precisa
-            </h1>
-            
-            <p class="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Transforme o seu caos financeiro num dashboard inteligente. Automática, simples e incrivelmente linda por apenas <span class="font-bold text-gray-800">R$ 19,90</span>.
-            </p>
-            
-            <div class="flex flex-col items-center gap-8">
-                <!-- Botão Hero: Agora leva para o ID #valor -->
-                <a href="#valor" class="btn-gradient text-white px-12 py-6 rounded-full text-xl font-bold w-full md:w-auto shadow-xl">
-                    Quero Minha Planilha Agora
-                </a>
+    <section class="pt-16 pb-20 px-6 relative overflow-hidden bg-white/50">
+        <div class="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative z-10 text-center lg:text-left">
+                <div class="inline-block px-4 py-1 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] font-bold uppercase tracking-widest mb-6">
+                    A queridinha do Pinterest ✨
+                </div>
+                <h1 class="font-serif text-4xl md:text-6xl text-gray-800 leading-tight mb-6">
+                    Assuma o controle do seu dinheiro em <span class="text-pink-400 italic">poucos minutos</span>
+                </h1>
+                <p class="text-lg text-gray-500 mb-8 max-w-xl mx-auto lg:mx-0">
+                    Uma planilha simples, automática e visualmente linda para organizar sua vida financeira por apenas <span class="font-bold text-gray-800">R$ 19,90</span>.
+                </p>
                 
-                <div class="flex gap-6 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-                    <span class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-pink-400"></i> Pagamento Único</span>
-                    <span class="flex items-center gap-2"><i data-lucide="zap" class="w-3 h-3 text-pink-400"></i> Download na Hora</span>
+                <div class="space-y-4 mb-10 text-left inline-block lg:block">
+                    <div class="flex items-center gap-3 text-sm text-gray-600">
+                        <i data-lucide="check-circle" class="check-icon w-5 h-5"></i>
+                        <span>Controle completo dos gastos</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm text-gray-600">
+                        <i data-lucide="check-circle" class="check-icon w-5 h-5"></i>
+                        <span>Dashboard automático com gráficos</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm text-gray-600">
+                        <i data-lucide="check-circle" class="check-icon w-5 h-5"></i>
+                        <span>Organização financeira simples e visual</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <a href="#valor" class="btn-gradient text-white px-10 py-5 rounded-full text-lg font-bold w-full sm:w-auto shadow-xl text-center">
+                        Quero Organizar Meu Dinheiro Agora
+                    </a>
+                </div>
+                
+                <div class="flex items-center justify-center lg:justify-start gap-6 mt-8 opacity-60">
+                    <div class="flex flex-col items-center gap-1">
+                        <i data-lucide="credit-card" class="w-4 h-4 text-pink-400"></i>
+                        <span class="text-[9px] font-bold uppercase tracking-widest">Pagamento único</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-1">
+                        <i data-lucide="zap" class="w-4 h-4 text-pink-400"></i>
+                        <span class="text-[9px] font-bold uppercase tracking-widest">Download imediato</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-1">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-pink-400"></i>
+                        <span class="text-[9px] font-bold uppercase tracking-widest">Compra segura</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="mt-20 relative">
-                <div class="bg-white p-3 rounded-[2.5rem] shadow-2xl border border-pink-50 max-w-4xl mx-auto floating">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200" alt="Preview da Planilha Financeira" class="rounded-[2rem] w-full">
+
+            <div class="relative lg:block">
+                <div class="bg-pink-50/50 rounded-[3rem] p-4 floating relative">
+                    <div class="image-container rounded-[2.5rem] shadow-2xl border border-white">
+                        <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Dashboard Financeiro" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'">
+                    </div>
+                    <div class="absolute -bottom-10 -right-6 w-40 h-40 rounded-3xl overflow-hidden border-4 border-white shadow-xl rotate-6 hidden md:block image-container">
+                        <img src="https://images.unsplash.com/photo-1454165833767-027508496b4c?auto=format&fit=crop&q=80&w=400" 
+                             alt="Trabalho Organizado" 
+                             class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO: O PROBLEMA -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-8 leading-tight">Cansada de sentir que o seu dinheiro <span class="text-pink-400 italic">escorre</span> pelas mãos?</h2>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <i data-lucide="alert-circle" class="w-5 h-5 text-pink-300 shrink-0"></i>
-                            <p class="text-gray-500 text-sm">O susto ao abrir a fatura do cartão no fim do mês.</p>
-                        </div>
-                        <div class="flex gap-4">
-                            <i data-lucide="alert-circle" class="w-5 h-5 text-pink-300 shrink-0"></i>
-                            <p class="text-gray-500 text-sm">Não saber quanto realmente pode gastar hoje.</p>
-                        </div>
-                        <div class="flex gap-4">
-                            <i data-lucide="alert-circle" class="w-5 h-5 text-pink-300 shrink-0"></i>
-                            <p class="text-gray-500 text-sm">A sensação de que trabalha apenas para pagar boletos.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-pink-50 p-10 rounded-[3rem] border border-pink-100">
-                    <p class="font-serif text-xl italic text-pink-600 mb-4">"Eu queria algo que fosse fácil, mas que não parecesse uma lição de matemática chata."</p>
-                    <p class="text-sm text-gray-500">— Nós ouvimos você. E criamos a solução.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO: FUNCIONALIDADES -->
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-6xl text-center">
-            <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-16 italic">Por que ela é <span class="text-pink-400">perfeita</span> para você?</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <!-- Card 1 -->
-                <div class="p-10 bg-pink-50/50 rounded-[3rem] border border-pink-100 hover:bg-white transition-all shadow-sm">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                        <i data-lucide="sparkles" class="text-pink-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl mb-4 italic">Design Impecável</h3>
-                    <p class="text-sm text-gray-500">Cores harmónicas e fontes elegantes. Você vai ter orgulho de abrir a sua planilha.</p>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="p-10 bg-purple-50/50 rounded-[3rem] border border-purple-100 hover:bg-white transition-all shadow-sm">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                        <i data-lucide="zap" class="text-purple-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl mb-4 italic">Totalmente Automática</h3>
-                    <p class="text-sm text-gray-500">Insira os gastos e veja os gráficos atualizarem sozinhos. Sem fórmulas complexas.</p>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="p-10 bg-emerald-50/50 rounded-[3rem] border border-emerald-100 hover:bg-white transition-all shadow-sm">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                        <i data-lucide="eye" class="text-emerald-400 w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl mb-4 italic">Visão 360º</h3>
-                    <p class="text-sm text-gray-500">Saiba exatamente para onde vai cada real: lazer, casa ou investimentos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO: BÓNUS -->
-    <section class="py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-16">
-                <span class="text-pink-400 font-bold uppercase text-[10px] tracking-widest">Exclusivo para Hoje</span>
-                <h2 class="font-serif text-4xl md:text-6xl text-gray-800 mt-4 italic">Você não leva só a planilha...</h2>
-            </div>
+    <!-- SEÇÃO: DOR -->
+    <section class="py-24 bg-pink-50/20">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-6 italic">Sente que seu dinheiro <span class="text-pink-400">desaparece</span> todo mês?</h2>
+            <p class="text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">Nós sabemos como é frustrante trabalhar duro e não ver o saldo crescer. Pequenos descuidos tornam-se grandes problemas.</p>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Bónus 01 -->
-                <div class="image-card group rounded-[2.5rem] border border-pink-100 p-6 flex flex-col items-center text-center shadow-sm">
-                    <div class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <i data-lucide="list-checks" class="text-pink-400 w-12 h-12"></i>
+                <div class="card-elegant group bg-white">
+                    <div class="h-48 image-container">
+                        <img src="cartoes.png" alt="Confusão com contas" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-80">
                     </div>
-                    <span class="text-[10px] font-bold text-pink-400 uppercase tracking-widest mb-2">Bónus #01</span>
-                    <h4 class="font-serif text-xl font-bold text-gray-800 mb-3 leading-tight">Checklist: Economia em 30 Dias</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">Um guia prático para cortar gastos invisíveis sem qualquer sofrimento.</p>
-                    <p class="text-pink-500 font-bold text-sm bg-pink-50 px-4 py-1 rounded-full italic text-[10px]">Grátis Hoje</p>
-                </div>
-
-                <!-- Bónus 02 -->
-                <div class="image-card group rounded-[2.5rem] border border-purple-100 p-6 flex flex-col items-center text-center shadow-sm">
-                    <div class="w-24 h-24 bg-purple-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <i data-lucide="play-circle" class="text-purple-400 w-12 h-12"></i>
-                    </div>
-                    <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-2">Bónus #02</span>
-                    <h4 class="font-serif text-xl font-bold text-gray-800 mb-3 leading-tight">Vídeo Aula: Primeiros Passos</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">Te ensino passo a passo como configurar tudo em apenas 5 minutos.</p>
-                    <p class="text-purple-500 font-bold text-sm bg-purple-50 px-4 py-1 rounded-full italic text-[10px]">Grátis Hoje</p>
-                </div>
-
-                <!-- Bónus 03 -->
-                <div class="image-card group rounded-[2.5rem] border border-amber-100 p-6 flex flex-col items-center text-center shadow-sm">
-                    <div class="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <i data-lucide="calculator" class="text-amber-500 w-12 h-12"></i>
-                    </div>
-                    <span class="text-[10px] font-bold text-amber-500 uppercase tracking-widest mb-2">Bónus #03</span>
-                    <h4 class="font-serif text-xl font-bold text-gray-800 mb-3 leading-tight">Calculadora de Metas</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">Saiba quanto poupar por mês para realizar a sua viagem ou sonho.</p>
-                    <p class="text-amber-600 font-bold text-sm bg-amber-50 px-4 py-1 rounded-full italic text-[10px]">Grátis Hoje</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO: LIFESTYLE -->
-    <section class="py-24 bg-pastel-pink/10 overflow-hidden">
-        <div class="container mx-auto px-6 max-w-6xl text-center">
-            <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-16 italic">O segredo para uma vida <span class="text-pink-500">leve</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="group relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Viagem na Praia" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 lifestyle-overlay flex items-end justify-center pb-8">
-                        <span class="text-white font-bold text-xs tracking-widest uppercase italic px-4 py-2 backdrop-blur-md rounded-lg bg-white/10 border border-white/20">Mais Viagens ✈️</span>
+                    <div class="p-8 text-center">
+                        <p class="text-sm text-gray-600 font-medium italic">Cartão de crédito sempre acima do planeado.</p>
                     </div>
                 </div>
-                
-                <div class="group relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Mulher feliz com cartão" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 lifestyle-overlay flex items-end justify-center pb-8">
-                        <span class="text-white font-bold text-xs tracking-widest uppercase italic px-4 py-2 backdrop-blur-md rounded-lg bg-white/10 border border-white/20">Zero Dívidas 💳</span>
+                <div class="card-elegant group bg-white">
+                    <div class="h-48 image-container">
+                        <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80&w=600" alt="Gastos pequenos" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-80">
+                    </div>
+                    <div class="p-8 text-center">
+                        <p class="text-sm text-gray-600 font-medium italic">Gastos invisíveis que destroem o seu orçamento.</p>
                     </div>
                 </div>
-
-                <div class="group relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80" alt="Mulher a meditar" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 lifestyle-overlay flex items-end justify-center pb-8">
-                        <span class="text-white font-bold text-xs tracking-widest uppercase italic px-4 py-2 backdrop-blur-md rounded-lg bg-white/10 border border-white/20">Paz Mental 🧘‍♀️</span>
+                <div class="card-elegant group bg-white">
+                    <div class="h-48 image-container">
+                        <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?auto=format&fit=crop&q=80&w=600" alt="Cansaço financeiro" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-80">
                     </div>
-                </div>
-
-                <div class="group relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=400&q=80" alt="Moedas e plantas" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 lifestyle-overlay flex items-end justify-center pb-8">
-                        <span class="text-white font-bold text-xs tracking-widest uppercase italic px-4 py-2 backdrop-blur-md rounded-lg bg-white/10 border border-white/20">Futuro Seguro 💰</span>
+                    <div class="p-8 text-center">
+                        <p class="text-sm text-gray-600 font-medium italic">Viver cansada de apenas pagar contas básicas.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PREÇO / CTA PRINCIPAL (A ÚLTIMA SECÇÃO) -->
-    <section id="valor" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="bg-gray-900 rounded-[3rem] p-12 md:p-20 text-white text-center relative overflow-hidden shadow-2xl">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-pink-500 blur-[120px] opacity-20"></div>
-                
-                <h2 class="font-serif text-4xl md:text-6xl mb-6 italic">Comece a sua transformação.</h2>
-                <p class="text-gray-400 mb-12 max-w-md mx-auto leading-relaxed">Organização para o resto da vida por um valor menor que um café por mês.</p>
-                
+    <!-- SEÇÃO: SOLUÇÃO -->
+    <section class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] image-container">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=600" alt="Planeamento" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] translate-y-12 image-container">
+                            <img src="vida.png" alt="Vida Leve" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-8 leading-tight">Uma forma simples de finalmente <span class="text-pink-400 italic">entender</span> o seu dinheiro</h2>
+                    <p class="text-gray-500 mb-8 leading-relaxed text-lg">
+                        Esqueça as planilhas feias e complexas. O sistema mostra-lhe o que realmente importa de forma visual:
+                    </p>
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-center gap-4 p-4 bg-pink-50/50 rounded-2xl border border-pink-100">
+                            <div class="w-12 h-12 rounded-xl overflow-hidden image-container shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=100" alt="Entradas" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-gray-700 font-medium italic">Saiba exatamente quanto entra no mês</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-purple-50/50 rounded-2xl border border-purple-100">
+                            <div class="w-12 h-12 rounded-xl overflow-hidden image-container shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=100" alt="Saídas" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-gray-700 font-medium italic">Para onde cada cêntimo está a ir</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-emerald-50/50 rounded-2xl border border-emerald-100">
+                            <div class="w-12 h-12 rounded-xl overflow-hidden image-container shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=100" alt="Sobra" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-gray-700 font-medium italic">Visualize quanto sobra para os seus sonhos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: BENEFÍCIOS -->
+    <section class="py-24 bg-white/30">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="card-elegant p-0 flex flex-col">
+                    <div class="h-44 image-container">
+                        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=600" alt="Design" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl mb-4 italic">Design Premium</h3>
+                        <p class="text-sm text-gray-500 italic">Planilha bonita e organizada para quem gosta de estética.</p>
+                    </div>
+                </div>
+                <div class="card-elegant p-0 flex flex-col">
+                    <div class="h-44 image-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="Automação" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl mb-4 italic">Totalmente Automática</h3>
+                        <p class="text-sm text-gray-500 italic">Cálculos e gráficos gerados automaticamente.</p>
+                    </div>
+                </div>
+                <div class="card-elegant p-0 flex flex-col">
+                    <div class="h-44 image-container">
+                        <img src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?auto=format&fit=crop&q=80&w=600" alt="Visão" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl mb-4 italic">Visão 360°</h3>
+                        <p class="text-sm text-gray-500 italic">Entenda exatamente para onde o seu dinheiro vai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: PROVA SOCIAL -->
+    <section class="py-24 bg-pink-50/40">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-16 italic">Quem já usa, <span class="text-pink-400">recomenda</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm text-center border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Camila" class="w-20 h-20 rounded-full border-4 border-pink-50 mx-auto mb-6 object-cover">
+                    <p class="text-sm text-gray-600 mb-6 italic">"Finalmente consegui entender para onde o meu dinheiro estava a ir."</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">— Camila, SP</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm text-center border border-pink-100 scale-105 z-10">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Juliana" class="w-20 h-20 rounded-full border-4 border-pink-50 mx-auto mb-6 object-cover">
+                    <p class="text-sm text-gray-600 mb-6 italic">"Em poucos dias consegui reduzir vários gastos desnecessários."</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">— Juliana, MG</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm text-center border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=200" alt="Mariana" class="w-20 h-20 rounded-full border-4 border-pink-50 mx-auto mb-6 object-cover">
+                    <p class="text-sm text-gray-600 mb-6 italic">"A planilha é linda e muito fácil de usar."</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">— Mariana, PR</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: O QUE RECEBE -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="card-elegant border-2 border-pink-100 relative flex flex-col">
+                    <div class="h-48 relative image-container">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=800" alt="Recebíveis" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-pink-500/10"></div>
+                    </div>
+                    <div class="p-10 md:p-12">
+                        <h2 class="font-serif text-3xl text-gray-800 mb-10">O que vai <span class="text-pink-400 italic">receber:</span></h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3"><i data-lucide="check" class="text-pink-400"></i><span class="text-sm text-gray-600 italic">Planilha premium completa</span></div>
+                            <div class="flex items-center gap-3"><i data-lucide="check" class="text-pink-400"></i><span class="text-sm text-gray-600 italic">Dashboard financeiro automático</span></div>
+                            <div class="flex items-center gap-3"><i data-lucide="check" class="text-pink-400"></i><span class="text-sm text-gray-600 italic">Controle detalhado de gastos</span></div>
+                            <div class="flex items-center gap-3"><i data-lucide="check" class="text-pink-400"></i><span class="text-sm text-gray-600 italic">Visual organizado e fácil de usar</span></div>
+                            <div class="flex items-center gap-3"><i data-lucide="check" class="text-pink-400"></i><span class="text-sm text-gray-600 italic">Atualização automática dos gráficos</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded-3xl shadow-xl w-full aspect-square image-container">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&q=80&w=400" alt="Acesso" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-3xl shadow-xl w-full aspect-square translate-y-8 image-container">
+                        <img src="sucesso.png" alt="Sucesso" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALOR PERCEBIDO -->
+    <section id="valor" class="py-24 bg-white/50">
+        <div class="container mx-auto px-6 max-w-4xl text-center relative">
+            <div class="mb-12 relative inline-block">
+                <div class="w-64 h-80 bg-gray-900 rounded-3xl mx-auto shadow-2xl relative overflow-hidden border-4 border-white rotate-[-5deg]">
+                    <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=600" alt="Produto Premium" class="w-full h-full object-cover opacity-60">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-white text-center">
+                        <span class="font-serif italic text-xl mb-2">Planilha Inteligente</span>
+                        <div class="w-12 h-0.5 bg-pink-400 mb-2"></div>
+                        <span class="text-[8px] uppercase tracking-[0.3em]">Versão Premium</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
+                <p class="text-gray-400 line-through mb-2 text-xl italic">Planilhas Profissionais: R$ 97,00 a R$ 197,00</p>
+                <h2 class="font-serif text-3xl md:text-5xl mb-12 italic">Comece hoje por apenas:</h2>
                 <div class="mb-10">
-                    <p class="text-xs font-bold text-pink-400 uppercase tracking-[0.3em] mb-4">Investimento Único</p>
                     <div class="flex items-center justify-center gap-2">
                         <span class="text-2xl font-light opacity-50">R$</span>
-                        <span class="text-7xl md:text-8xl font-serif font-bold tracking-tighter">19,90</span>
+                        <span class="text-8xl md:text-9xl font-serif font-bold tracking-tighter">19,90</span>
                     </div>
+                    <p class="text-xs font-bold text-pink-400 uppercase tracking-[0.3em] mt-4 italic">Pagamento Único</p>
                 </div>
-                
-                <!-- O Único Botão que leva para o Pagamento -->
-                <a href="https://pay.cakto.com.br/3dzfq9a_792132" class="btn-gradient text-white px-12 py-6 rounded-full text-xl font-bold w-full md:w-auto inline-block mb-10 shadow-lg hover:shadow-pink-500/30">
-                    Garanta a Sua Vaga Agora
+                <a href="https://pay.cakto.com.br/3dzfq9a_792132" class="btn-gradient text-white px-12 py-6 rounded-full text-xl font-bold w-full md:w-auto inline-block mb-10 shadow-lg relative z-10">
+                    Quero Organizar Meu Dinheiro Agora
                 </a>
-                
-                <!-- LOGOTIPOS DE PAGAMENTO -->
                 <div class="flex justify-center items-center gap-8 grayscale opacity-60">
-                    <svg viewBox="0 0 512 512" class="h-6 fill-white"><path d="M110.5 407.7c-5.5 0-10.8-2.2-14.7-6l-85.3-84c-7.9-7.8-7.9-20.5 0-28.3l85.3-84c7.8-7.7 20.6-7.7 28.4 0l85.3 84c7.9 7.8 7.9 20.5 0 28.3l-85.3 84c-3.7 3.8-9 6-13.7 6zm0-163.5l-65.7 64.7 65.7 64.7 65.7-64.7-65.7-64.7zM401.5 407.7c-5.5 0-10.8-2.2-14.7-6l-85.3-84c-7.9-7.8-7.9-20.5 0-28.3l85.3-84c7.8-7.7 20.6-7.7 28.4 0l85.3 84c7.9 7.8 7.9 20.5 0 28.3l-85.3 84c-3.7 3.8-9 6-13.7 6zm0-163.5l-65.7 64.7 65.7 64.7 65.7-64.7-65.7-64.7zM256 261.7c-5.5 0-10.8-2.2-14.7-6l-85.3-84c-7.9-7.8-7.9-20.5 0-28.3l85.3-84c7.8-7.7 20.6-7.7 28.4 0l85.3 84c7.9 7.8 7.9 20.5 0 28.3l-85.3 84c-3.7 3.8-9 6-13.7 6zm0-163.5l-65.7 64.7 65.7 64.7 65.7-64.7-65.7-64.7z"/></svg>
-                    <svg viewBox="0 0 100 32" class="h-5 fill-white"><path d="M37.3 3.6c-1.4-.4-3.1-.7-4.8-.7-5.4 0-9.2 2.8-9.2 6.8 0 3 2.7 4.7 4.8 5.7 2.1 1 2.8 1.7 2.8 2.6 0 1.4-1.7 2-3.3 2-2.2 0-3.4-.3-5.3-1.1L21 21.6c1.2.6 3.4 1 5.3 1 5.7 0 9.4-2.8 9.5-7.1 0-2.4-1.4-4.2-4.6-5.7-2-.9-3.2-1.6-3.2-2.5 0-.9 1-1.8 3.1-1.8 1.7-.1 3 .3 4 0.7l1.4-2.6zM61.3 2.9h-3.1c-1 0-1.8.6-2.2 1.5L46.6 22.1h3.9l.8-2.1h4.7l.4 2.1h3.4l1.5-19.2zm-9.3 13.5l2.2-6.1 1.2 6.1h-3.4zM86.1 2.9l-3.1 19.2h3.6l3.1-19.2zM15.4 2.9h-5.8c-1.1 0-2.1.3-2.6 1.4L0 22.1h4l.8-2.2h4.9l.5 2.2h3.5l1.7-19.2zm-9 13.5l2.2-6.1 1.2 6.1h-3.4z"/></svg>
-                    <svg viewBox="0 0 100 62" class="h-6 fill-white opacity-80"><circle cx="31" cy="31" r="31" fill="#fff" fill-opacity="0.3"/><circle cx="69" cy="31" r="31" fill="#fff" fill-opacity="0.2"/></svg>
+                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    <i data-lucide="credit-card" class="w-8 h-8"></i>
+                    <i data-lucide="zap" class="w-8 h-8"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: TRANSFORMAÇÃO -->
+    <section class="py-24 bg-white relative">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="font-serif text-3xl md:text-5xl text-gray-800 mb-12 italic">O segredo para uma vida financeira <span class="text-pink-500">mais leve</span></h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden mb-4 shadow-lg border-2 border-white relative image-container">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" alt="Leveza" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-700 font-medium text-sm italic">Menos ansiedade</p>
+                </div>
+                <div class="group">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden mb-4 shadow-lg border-2 border-white relative translate-y-6 image-container">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=400" alt="Controle" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-700 font-medium text-sm italic translate-y-6">Mais controle</p>
+                </div>
+                <div class="group">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden mb-4 shadow-lg border-2 border-white relative image-container">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=400" alt="Economia" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-700 font-medium text-sm italic">Mais economia</p>
+                </div>
+                <div class="group">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden mb-4 shadow-lg border-2 border-white relative translate-y-6 image-container">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400" alt="Clareza" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-700 font-medium text-sm italic translate-y-6">Mais clareza</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="py-24 bg-white border-t border-gray-50 text-center">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="font-serif text-3xl md:text-4xl text-gray-800 mb-16 italic text-pink-400">Dúvidas Frequentes</h2>
-            
-            <div class="space-y-4 text-left">
-                <details class="group bg-gray-50 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-pink-100 transition">
-                    <summary class="flex justify-between items-center font-bold text-gray-800 list-none">
-                        Funciona no telemóvel?
-                        <i data-lucide="plus" class="w-4 h-4 group-open:rotate-45 transition"></i>
-                    </summary>
-                    <p class="text-sm text-gray-500 mt-4 leading-relaxed italic">Sim! Recomendamos o uso através do app gratuito "Google Planilhas" para uma experiência perfeita no telemóvel.</p>
-                </details>
-                <details class="group bg-gray-50 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-pink-100 transition">
-                    <summary class="flex justify-between items-center font-bold text-gray-800 list-none">
-                        O pagamento é mensal?
-                        <i data-lucide="plus" class="w-4 h-4 group-open:rotate-45 transition"></i>
-                    </summary>
-                    <p class="text-sm text-gray-500 mt-4 leading-relaxed italic">Não. É um investimento único de R$ 19,90 e o acesso é para sempre.</p>
-                </details>
-                <details class="group bg-gray-50 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-pink-100 transition">
-                    <summary class="flex justify-between items-center font-bold text-gray-800 list-none">
-                        E se eu tiver dúvidas técnicas?
-                        <i data-lucide="plus" class="w-4 h-4 group-open:rotate-45 transition"></i>
-                    </summary>
-                    <p class="text-sm text-gray-500 mt-4 leading-relaxed italic">Oferecemos suporte via e-mail para garantir que consiga abrir e usar a sua planilha sem problemas.</p>
-                </details>
+    <section class="py-24 bg-white border-t border-gray-50">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h2 class="font-serif text-3xl md:text-4xl text-pink-400 mb-8 italic">Dúvidas Frequentes</h2>
+                    <div class="space-y-4 text-left">
+                        <details class="group bg-gray-50 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-pink-100 transition">
+                            <summary class="flex justify-between items-center font-bold text-gray-800">Funciona no telemóvel? <i data-lucide="plus" class="w-4 h-4 group-open:rotate-45 transition"></i></summary>
+                            <p class="text-sm text-gray-500 mt-4 italic">Sim! Pode utilizar através da app gratuita do Google Planilhas no seu telemóvel ou tablet.</p>
+                        </details>
+                        <details class="group bg-gray-50 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-pink-100 transition">
+                            <summary class="flex justify-between items-center font-bold text-gray-800">O pagamento é seguro? <i data-lucide="plus" class="w-4 h-4 group-open:rotate-45 transition"></i></summary>
+                            <p class="text-sm text-gray-500 mt-4 italic">Sim, utilizamos uma plataforma de pagamentos 100% segura e criptografada.</p>
+                        </details>
+                        <details class="group bg-gray-50 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-pink-100 transition">
+                            <summary class="flex justify-between items-center font-bold text-gray-800">Como recebo a planilha? <i data-lucide="plus" class="w-4 h-4 group-open:rotate-45 transition"></i></summary>
+                            <p class="text-sm text-gray-500 mt-4 italic">Imediatamente após a confirmação do pagamento no seu e-mail.</p>
+                        </details>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl rotate-3 border-8 border-white image-container">
+                        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=600" alt="Suporte" class="w-full h-80 object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="py-12 bg-white text-center border-t border-gray-100">
-        <p class="font-serif italic text-pink-400 text-xl mb-4">Financeira.Premium</p>
-        <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-2">Copyright © 2024 • Todos os direitos reservados</p>
+        <div class="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="heart" class="text-pink-400 w-6 h-6"></i></div>
+        <p class="font-serif italic text-pink-500 text-2xl mb-4">Financeira.Premium</p>
+        <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em] mb-2">Copyright © 2025 • Todos os direitos reservados</p>
     </footer>
 
     <script>
+        // Inicializa ícones Lucide
         lucide.createIcons();
+
+        // Fallback global para imagens quebradas (se o Unsplash falhar)
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.opacity = '0.5'; // Deixa a imagem "Placeholder" visível mas sutil
+                this.parentElement.style.backgroundColor = '#fce7f3';
+            });
+        });
     </script>
 </body>
 </html>
